@@ -76,6 +76,7 @@
     opacity: 0; animation: slideIn 0.7s 0.1s forwards;
   }
   .hero-eyebrow::before { content: ""; display: block; width: 24px; height: 1px; background: var(--red); }
+  .hero-eyebrow-mobile { display: none; }
   .hero-title {
     font-family: "Playfair Display", serif;
     font-size: clamp(2.56rem, 4.4vw, 4.64rem);
@@ -410,8 +411,17 @@
       order: -1;
       padding-top: 0;
       align-self: center;
+      flex-direction: column;
       margin-bottom: 1rem;
     }
+    .hero-eyebrow-mobile {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); text-align: center;
+    }
+    .hero-left .hero-eyebrow { display: none; }
     .hero-left { order: 1; margin-bottom: 0.5rem; }
     .hero-right { order: 2; }
     .hero-content { text-align: center; }
@@ -439,25 +449,54 @@
      RESPONSIVE — PHONE (<= 600px)
      ============================================================ */
   @media (max-width: 600px) {
-    nav { padding: 0.9rem 1.1rem; }
-    .nav-logo-text { font-size: 0.95rem; }
-    .nav-links { gap: 0.7rem; }
-    .nav-links a { font-size: 0.6rem; letter-spacing: 0.06em; }
-    .nav-coffee { padding: 0.45rem 0.75rem; }
+    /* Nav — drop the logo so links have room to breathe */
+    nav { padding: 0.9rem 1.1rem; justify-content: flex-end; gap: 1rem; }
+    .nav-logo { display: none; }
+    .nav-links { gap: 0.85rem; }
+    .nav-links a { font-size: 0.62rem; letter-spacing: 0.05em; white-space: nowrap; }
+    .nav-coffee { padding: 0.45rem 0.8rem; }
 
-    .hero { padding-top: 6rem; }
-    .hero-title { font-size: clamp(2.4rem, 13vw, 3.2rem); }
-    .hero-title-right { font-size: clamp(2rem, 11vw, 2.8rem); margin-bottom: 1.25rem; }
-    .hero-eyebrow { margin-bottom: 1.25rem; }
-    .hero-sub { font-size: 0.85rem; margin-bottom: 2rem; }
-    .hero-ctas { gap: 0.75rem; }
-    .btn-red, .btn-outline { padding: 0.8rem 1.5rem; font-size: 0.72rem; }
+    .hero { padding-top: 0; padding-bottom: 3rem; }
 
-    /* Logo ~60% of viewport width on phones */
-    .logo-stage {
-      transform: scale(0.45);
-      margin: -148px 0;
+    /* Logo column fills the first screen, centered, with eyebrow beneath */
+    .hero-center {
+      order: -1;
+      min-height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 0;
     }
+    /* Logo ~80% of viewport width on phones */
+    .logo-stage {
+      transform: scale(0.58);
+      margin: -114px 0;
+    }
+    .hero-eyebrow-mobile {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--red); text-align: center;
+    }
+
+    /* Text blocks below — left aligned, smaller, tight together */
+    .hero-left, .hero-right {
+      padding: 0 1.5rem;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .hero-content { text-align: left; }
+    .hero-left { order: 1; margin-bottom: 1.5rem; }
+    .hero-right { order: 2; }
+    .hero-left .hero-eyebrow { display: none; }  /* moved under logo */
+    .hero-title { font-size: clamp(2rem, 11vw, 2.8rem); margin-bottom: 0.75rem; }
+    .hero-title-right { font-size: clamp(1.8rem, 9vw, 2.4rem); margin-bottom: 0.9rem; }
+    .hero-sub {
+      font-size: 0.82rem; line-height: 1.6;
+      margin: 0 0 1.5rem 0; max-width: none;
+    }
+    .hero-ctas { justify-content: flex-start; gap: 0.75rem; }
+    .btn-red, .btn-outline { padding: 0.8rem 1.5rem; font-size: 0.72rem; }
 
     .svc-grid { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr; }
@@ -523,6 +562,7 @@
         <img class="logo-img" src="logo_hb.webp" alt="Heart Bound Coders">
       </div>
     </div>
+    <p class="hero-eyebrow-mobile">Dev Studio for Small Business</p>
   </div>
 
   <!-- Right column — Built to last. + sub-copy + CTAs -->
@@ -749,6 +789,9 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 els.forEach(el => obs.observe(el));
 
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
