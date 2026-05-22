@@ -451,31 +451,34 @@
   @media (max-width: 600px) {
     /* Nav — drop the logo so links have room to breathe */
     nav { padding: 0.9rem 1.1rem; justify-content: flex-end; gap: 1rem; }
-    .nav-logo { display: none; }
+    /* Nav — drop the logo image, keep the brand text for breathing room */
+    nav { padding: 0.9rem 1.1rem; }
+    .nav-logo img { display: none; }
+    .nav-logo-text { font-size: 0.95rem; }
+    .nav-logo-text small { font-size: 0.52rem; }
     .nav-links { gap: 0.85rem; }
     .nav-links a { font-size: 0.62rem; letter-spacing: 0.05em; white-space: nowrap; }
     .nav-coffee { padding: 0.45rem 0.8rem; }
 
-    .hero { padding-top: 0; padding-bottom: 3rem; }
+    .hero { padding-top: 5.5rem; padding-bottom: 2.5rem; }
 
-    /* Logo column fills the first screen, centered, with eyebrow beneath */
+    /* Logo at top-middle, compact — leaves room for text on first screen */
     .hero-center {
       order: -1;
-      min-height: 100vh;
       flex-direction: column;
       justify-content: center;
       margin-bottom: 0;
     }
-    /* Logo ~80% of viewport width on phones */
+    /* Logo ~55% of viewport width on phones */
     .logo-stage {
-      transform: scale(0.58);
-      margin: -114px 0;
+      transform: scale(0.40);
+      margin: -162px 0;
     }
     .hero-eyebrow-mobile {
       display: block;
-      margin-top: 0.5rem;
-      font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.22em; text-transform: uppercase;
+      margin-top: 0;
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--red); text-align: center;
     }
 
@@ -486,17 +489,17 @@
       text-align: left;
     }
     .hero-content { text-align: left; }
-    .hero-left { order: 1; margin-bottom: 1.5rem; }
+    .hero-left { order: 1; margin-bottom: 1rem; }
     .hero-right { order: 2; }
     .hero-left .hero-eyebrow { display: none; }  /* moved under logo */
-    .hero-title { font-size: clamp(2rem, 11vw, 2.8rem); margin-bottom: 0.75rem; }
-    .hero-title-right { font-size: clamp(1.8rem, 9vw, 2.4rem); margin-bottom: 0.9rem; }
+    .hero-title { font-size: clamp(1.9rem, 10vw, 2.6rem); margin-bottom: 0.5rem; line-height: 1.05; }
+    .hero-title-right { font-size: clamp(1.7rem, 8.5vw, 2.3rem); margin-bottom: 0.75rem; line-height: 1.05; }
     .hero-sub {
-      font-size: 0.82rem; line-height: 1.6;
-      margin: 0 0 1.5rem 0; max-width: none;
+      font-size: 0.8rem; line-height: 1.55;
+      margin: 0 0 1.25rem 0; max-width: none;
     }
-    .hero-ctas { justify-content: flex-start; gap: 0.75rem; }
-    .btn-red, .btn-outline { padding: 0.8rem 1.5rem; font-size: 0.72rem; }
+    .hero-ctas { justify-content: flex-start; gap: 0.65rem; }
+    .btn-red, .btn-outline { padding: 0.75rem 1.35rem; font-size: 0.7rem; }
 
     .svc-grid { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr; }
@@ -789,9 +792,6 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 els.forEach(el => obs.observe(el));
 
-</script>
-</body>
-</html>
 </script>
 </body>
 </html>
