@@ -73,17 +73,6 @@
   .nav-coffee { display: flex; align-items: center; gap: 0.4rem; background: var(--red); color: var(--white) !important; padding: 0.55rem 1.1rem; border-radius: 1px; transition: background 0.2s !important; }
   .nav-coffee:hover { background: var(--red-bright) !important; }
 
-  /* GHOST TEXT — large watermark behind hero columns */
-  .hero-ghost {
-    position: absolute; z-index: 0; pointer-events: none;
-    font-family: "Playfair Display", serif;
-    font-size: 22vw; font-weight: 700; line-height: 1;
-    color: rgba(240,237,232,0.022); letter-spacing: -0.04em;
-    user-select: none; white-space: nowrap;
-    top: 50%; transform: translateY(-50%);
-  }
-  .hero-ghost-left { left: -2vw; }
-  .hero-ghost-right { right: -2vw; }
 
   /* AVAILABLE INDICATOR */
   .available-dot {
@@ -601,7 +590,7 @@
     .hero-content { text-align: center; }
     .hero-sub { margin-left: auto; margin-right: auto; }
     .hero-ctas { justify-content: center; flex-wrap: wrap; }
-    .hero-grid-lines, .hero-bg, .hero-ghost { display: none; }
+    .hero-grid-lines, .hero-bg { display: none; }
 
     /* Scale the whole logo assembly down as one unit (~60% of phone width) */
     .logo-stage {
@@ -732,8 +721,6 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
-  <div class="hero-ghost hero-ghost-left">CODE</div>
-  <div class="hero-ghost hero-ghost-right">BUILD</div>
 
   <div class="hero-left">
     <div class="hero-content">
@@ -870,7 +857,7 @@
   <!-- STAT ROW -->
   <div class="stat-row">
     <div class="stat-item">
-      <div class="stat-num" data-target="11">0<em>+</em></div>
+      <div class="stat-num" data-target="47">0<em>+</em></div>
       <p class="stat-label">Projects Delivered</p>
     </div>
     <div class="stat-item">
